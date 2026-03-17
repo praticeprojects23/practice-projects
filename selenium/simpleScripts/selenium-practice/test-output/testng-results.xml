@@ -1,37 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-03-15T12:18:34 EDT" name="Default suite" finished-at="2026-03-15T12:18:55 EDT" duration-ms="20094">
+  <suite started-at="2026-03-16T19:59:25 EDT" name="Default suite" finished-at="2026-03-16T19:59:41 EDT" duration-ms="16059">
     <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.practice.selenium_practice.runners.LoginRunner@48075da3]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
     </groups>
-    <test started-at="2026-03-15T12:18:34 EDT" name="Default test" finished-at="2026-03-15T12:18:55 EDT" duration-ms="20094">
-      <class name="com.practice.selenium_practice.SuccessfulLoginPracticeTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.practice.selenium_practice.SuccessfulLoginPracticeTest@942a29c]" started-at="2026-03-15T12:18:35 EDT" name="setup" finished-at="2026-03-15T12:18:42 EDT" duration-ms="7533" status="PASS">
+    <test started-at="2026-03-16T19:59:25 EDT" name="Default test" finished-at="2026-03-16T19:59:41 EDT" duration-ms="16059">
+      <class name="com.practice.selenium_practice.runners.LoginRunner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.practice.selenium_practice.runners.LoginRunner@48075da3]" started-at="2026-03-16T19:59:25 EDT" name="setUpClass" finished-at="2026-03-16T19:59:25 EDT" duration-ms="313" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@2715644a]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="validLoginShouldNavigateToSecurePage()[pri:0, instance:com.practice.selenium_practice.SuccessfulLoginPracticeTest@942a29c]" started-at="2026-03-15T12:18:42 EDT" name="validLoginShouldNavigateToSecurePage" finished-at="2026-03-15T12:18:49 EDT" duration-ms="6505" status="PASS">
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.practice.selenium_practice.runners.LoginRunner@48075da3]" started-at="2026-03-16T19:59:25 EDT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-03-16T19:59:41 EDT" duration-ms="15680" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Valid login"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Login functionality"]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- validLoginShouldNavigateToSecurePage -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.practice.selenium_practice.SuccessfulLoginPracticeTest@942a29c]" started-at="2026-03-15T12:18:49 EDT" name="teardown" finished-at="2026-03-15T12:18:49 EDT" duration-ms="117" status="PASS">
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.practice.selenium_practice.runners.LoginRunner@48075da3]" started-at="2026-03-16T19:59:41 EDT" name="tearDownClass" finished-at="2026-03-16T19:59:41 EDT" duration-ms="2" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- teardown -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.practice.selenium_practice.SuccessfulLoginPracticeTest@942a29c]" started-at="2026-03-15T12:18:49 EDT" name="setup" finished-at="2026-03-15T12:18:54 EDT" duration-ms="5724" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="performLogoutOperation()[pri:0, instance:com.practice.selenium_practice.SuccessfulLoginPracticeTest@942a29c]" started-at="2026-03-15T12:18:54 EDT" name="performLogoutOperation" finished-at="2026-03-15T12:18:54 EDT" depends-on-methods="com.practice.selenium_practice.SuccessfulLoginPracticeTest.validLoginShouldNavigateToSecurePage" duration-ms="2" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- performLogoutOperation -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.practice.selenium_practice.SuccessfulLoginPracticeTest@942a29c]" started-at="2026-03-15T12:18:54 EDT" name="teardown" finished-at="2026-03-15T12:18:55 EDT" duration-ms="107" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- teardown -->
-      </class> <!-- com.practice.selenium_practice.SuccessfulLoginPracticeTest -->
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- com.practice.selenium_practice.runners.LoginRunner -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

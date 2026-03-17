@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-public class SuccessfullLoginPractice {
+public class SuccessfullLoginPracticeWithoutTestNG {
 	public static void main (String[] args) throws InterruptedException {
 		WebDriver driver = new ChromeDriver();
 
@@ -46,23 +46,6 @@ public class SuccessfullLoginPractice {
 			WebElement password = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("password")));
 			//clickable is more appropriate for something we intend to click on 
 			WebElement submitButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit']")));
-
-			/*various By examples*/
-			//			WebElement submitButton = driver.findElement(By.tagName("button"));
-			//			WebElement submitButton = driver.findElement(By.className("radius"));
-			//using tag + attribute
-			//			WebElement submitButton = driver.findElement(By.cssSelector("button[type='submit']"));
-
-
-			//4. By CSS selector using class
-			//			WebElement submitButton = driver.findElement(By.cssSelector("button.radius"));
-			//5. 5. By XPath using tag + attribute
-			//			WebElement submitButton = driver.findElement(By.xpath("//button[@type='submit']"));
-			//6. By XPath using class
-			//			WebElement submitButton = driver.findElement(By.xpath("//button[@class='radius']"));
-			//7. XPath by text
-			//			WebElement submitButton = driver.findElement(By.xpath("//i[contains(text(),'Login')]"));
-
 
 			//perform actions: sendKeys(), click()
 			username.sendKeys("tomsmith");
