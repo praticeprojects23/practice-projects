@@ -3,14 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.practice.selenium_practice.SuccessfulLoginPracticeTest">
+      <class name="com.practice.selenium_practice.ApiBasicExamples">
         <methods>
-          <include name="teardown"/>
-          <include name="validLoginShouldNavigateToSecurePage"/>
-          <include name="performLogoutOperation"/>
-          <include name="setup"/>
+          <include name="testPutPost"/>
         </methods>
-      </class> <!-- com.practice.selenium_practice.SuccessfulLoginPracticeTest -->
+      </class> <!-- com.practice.selenium_practice.ApiBasicExamples -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

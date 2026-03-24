@@ -1,4 +1,4 @@
-package com.practice.selenium_practice.pages;
+package com.practice.framework.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

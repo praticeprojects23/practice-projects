@@ -1,4 +1,4 @@
-package com.practice.selenium_practice.stepdefinitions;
+package com.practice.tests.stepdefinitions;
 
 import java.time.Duration;
 
@@ -7,10 +7,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-import com.practice.selenium_practice.pages.LoginPage;
-import com.practice.selenium_practice.pages.SecureAreaPage;
-import com.practice.selenium_practice.testdata.LoginTestData;
-
+import com.practice.framework.config.ConfigReader;
+import com.practice.framework.pages.LoginPage;
+import com.practice.framework.pages.SecureAreaPage;
+import com.practice.tests.testdata.LoginTestData;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -27,7 +27,7 @@ public class LoginSteps {
 	public void setup() {
 		driver = new ChromeDriver();
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		driver.get(LoginTestData.BASE_URL);
+		driver.get(ConfigReader.getProperty("base_url"));
 
 		loginPage = new LoginPage(driver, wait);
 		secureAreaPage = new SecureAreaPage(wait);

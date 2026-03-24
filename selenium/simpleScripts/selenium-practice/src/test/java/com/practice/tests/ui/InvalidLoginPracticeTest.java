@@ -1,4 +1,4 @@
-package com.practice.selenium_practice;
+package com.practice.tests.ui;
 
 import java.time.Duration;
 

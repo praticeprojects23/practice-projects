@@ -1,4 +1,4 @@
-package com.practice.selenium_practice;
+package com.practice.tests.ui;
 
 import java.time.Duration;
 
@@ -10,8 +10,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.practice.selenium_practice.pages.LoginPage;
-import com.practice.selenium_practice.pages.SecureAreaPage;
+import com.practice.framework.pages.LoginPage;
+import com.practice.framework.pages.SecureAreaPage;
 
 public class LoginLogoutFlowPOMTest {
 	private WebDriver driver;
