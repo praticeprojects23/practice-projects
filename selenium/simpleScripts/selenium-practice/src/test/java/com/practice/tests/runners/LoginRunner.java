@@ -9,11 +9,9 @@ import io.cucumber.testng.CucumberOptions;
  */
 @CucumberOptions(
 			features = "src/test/resources/features/", //.feature files
-			glue ="com.practice.selenium_practice.stepdefinitions" //step definitions
-			//optional
-//			plugin = "",
-//			monochrome = "",
-//			tags = "",
+			//glue ="com.practice.tests.stepdefinitions" //step definitions
+		    glue = {"com.practice.tests.stepdefinitions", "com.practice.tests.hooks"} 
+			//step definitions, with cucumber hooks
 			)
 
 public class LoginRunner extends AbstractTestNGCucumberTests{}

@@ -5,20 +5,24 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.practice.framework.config.ConfigReader;
+
 public class LoginPage {
 	private WebDriver driver;
 	private WebDriverWait wait;
 
-	//storing locators: use By. to be used later when locating WebElement for interactions.
 	private By usernameField = By.id("username");
 	private By passwordField = By.id("password");
 	private By submitButton = By.xpath("//button[@type='submit']");
 	private By logoutMessage = By.cssSelector("div[id='flash-messages'] div.flash.success");
 
-
 	public LoginPage(WebDriver driver, WebDriverWait wait){
 		this.driver = driver;
 		this.wait = wait;
+	}
+
+	public void open() {
+		driver.get(ConfigReader.getProperty("baseUrl") + "/login");
 	}
 
 	public boolean isUsernameFieldDisplayed() {
@@ -35,7 +39,11 @@ public class LoginPage {
 	}
 
 	public String getLogoutConfirmationMessage() {
-		return wait.until(ExpectedConditions.visibilityOfElementLocated(logoutMessage)).getText().trim();
+	    String message = wait.until(ExpectedConditions.visibilityOfElementLocated(logoutMessage))
+	            .getText()
+	            .replace("×", "")
+	            .trim();
+	    return message;
 	}
 
 	public void enterUsername(String username) {
@@ -50,7 +58,7 @@ public class LoginPage {
 		wait.until(ExpectedConditions.elementToBeClickable(this.submitButton)).click();
 	}
 
-	public void login(String username, String password) {
+	public void loginAs(String username, String password) {
 		this.enterUsername(username);
 		this.enterPassword(password);
 		this.clickLoginButton();

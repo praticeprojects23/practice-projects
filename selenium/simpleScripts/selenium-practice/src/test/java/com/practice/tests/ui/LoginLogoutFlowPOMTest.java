@@ -1,44 +1,28 @@
 package com.practice.tests.ui;
 
-import java.time.Duration;
-
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 import com.practice.framework.pages.LoginPage;
 import com.practice.framework.pages.SecureAreaPage;
+import com.practice.tests.base.BaseTest;
+import com.practice.tests.testdata.LoginTestData;
 
-public class LoginLogoutFlowPOMTest {
-	private WebDriver driver;
-	private WebDriverWait wait;
-	private String baseURL;
-
-	@BeforeMethod
-	public void setup() {
-		driver = new ChromeDriver();
-		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		baseURL = "https://the-internet.herokuapp.com/login";
-	}
+public class LoginLogoutFlowPOMTest extends BaseTest{
 
 	@Test
 	public void validLoginThenLogoutShouldReturnToLoginPage() {
-		driver.get(baseURL);
 		LoginPage loginPage = new LoginPage(driver, wait);
-		SecureAreaPage secureAreaPage = new SecureAreaPage(wait);
+		loginPage.open();
+
+		SecureAreaPage secureAreaPage = new SecureAreaPage(driver, wait);
 
 		Assert.assertTrue(loginPage.isUsernameFieldDisplayed(), "after logging out, username field should be displayed.");
 		Assert.assertTrue(loginPage.isPasswordFieldDisplayed(), "after logging out, password field should be displayed.");
 		Assert.assertTrue(loginPage.isLoginButtonDisplayed(), "after logging out, login button field should be displayed.");
 
-		loginPage.login("tomsmith","SuperSecretPassword!");
+		loginPage.loginAs(LoginTestData.VALID_USERNAME,LoginTestData.VALID_PASSWORD);
 
-		String expectedMessage = "Welcome to the Secure Area. When you are done click logout below";
-		Assert.assertTrue(secureAreaPage.getSuccessfulLoginMessage().contains(expectedMessage),
+		Assert.assertTrue(secureAreaPage.getSecureAreaMessage().contains(LoginTestData.SECURE_AREA_MESSAGE),
 				"expected message was not retrieved when logging in.");
 
 		Assert.assertTrue((driver.getCurrentUrl()).contains("/secure"), 
@@ -47,17 +31,13 @@ public class LoginLogoutFlowPOMTest {
 		//logout test
 		Assert.assertTrue(secureAreaPage.isLogoutButtonDisplayed(),"logout button should be be visible");
 		secureAreaPage.clickLogoutButton();
+		
 		Assert.assertTrue((driver.getCurrentUrl()).contains("/login"), 
 				"When returning back to login screen, url should have contained \"/login");
 
 		Assert.assertTrue(loginPage.isUsernameFieldDisplayed(), "after logging out, username field should be displayed.");
 		Assert.assertTrue(loginPage.isPasswordFieldDisplayed(), "after logging out, password field should be displayed.");
 		Assert.assertTrue(loginPage.isLoginButtonDisplayed(), "after logging out, login button field should be displayed.");
-		Assert.assertEquals(loginPage.getLogoutConfirmationMessage(), "You logged out of the secure area!");
-	}
-
-	@AfterMethod
-	public void teardown() {
-		driver.quit();
+		Assert.assertEquals(loginPage.getLogoutConfirmationMessage(), LoginTestData.LOGOUT_MESSAGE);
 	}
 }
