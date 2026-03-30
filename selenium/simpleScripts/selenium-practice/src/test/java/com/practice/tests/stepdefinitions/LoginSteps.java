@@ -1,19 +1,15 @@
 package com.practice.tests.stepdefinitions;
 
-//import java.time.Duration;
-
 import org.openqa.selenium.WebDriver;
-//import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-//import com.practice.framework.config.ConfigReader;
 import com.practice.framework.driver.DriverFactory;
 import com.practice.framework.pages.LoginPage;
 import com.practice.framework.pages.SecureAreaPage;
+import com.practice.framework.utils.WaitUtils;
 import com.practice.tests.testdata.LoginTestData;
-//import io.cucumber.java.After;
-//import io.cucumber.java.Before;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -27,12 +23,12 @@ public class LoginSteps {
 	@Given(value = "user is on the login page")
 	public void checkUserIsOnLoginPage() {
 		driver = DriverFactory.getDriver();
-        wait = new WebDriverWait(driver, java.time.Duration.ofSeconds(10));
-        loginPage = new LoginPage(driver, wait);
-        secureAreaPage = new SecureAreaPage(driver, wait);
+		wait = WaitUtils.createWait(driver);
+		loginPage = new LoginPage(driver, wait);
+		secureAreaPage = new SecureAreaPage(driver, wait);
 
-        loginPage.open();
-        
+		loginPage.open();
+
 		Assert.assertTrue(loginPage.isUsernameFieldDisplayed(), "when first loading the page, username field should be displayed.");
 		Assert.assertTrue(loginPage.isPasswordFieldDisplayed(), "when first loading the page, password field should be displayed.");
 		Assert.assertTrue(loginPage.isLoginButtonDisplayed(), "when first loading the page, login button field should be displayed.");
@@ -53,9 +49,4 @@ public class LoginSteps {
 		Assert.assertTrue((driver.getCurrentUrl()).contains("/secure"), 
 				"did not have expected url containing \"/secure");
 	}
-
-//	@After
-//	public void teardown() {
-//		if(driver != null)driver.quit();
-//	}
 }
