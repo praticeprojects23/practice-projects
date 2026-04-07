@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
  *    and parallel testing, typically using the io.cucumber.testng package.
  */
 @CucumberOptions(
-			features = "src/test/resources/features/", //.feature files
+			features = "src/test/resources/features/web_form_dropdown.feature", //.feature files
 			//glue ="com.practice.tests.stepdefinitions" //step definitions
 		    glue = {"com.practice.tests.stepdefinitions", "com.practice.tests.hooks"} 
 			//step definitions, with cucumber hooks
